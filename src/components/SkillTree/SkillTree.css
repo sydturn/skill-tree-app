@@ -1,0 +1,54 @@
+.skillTreeContainer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 3rem;
+}
+
+@media screen and (max-width: 680px) {
+  .skillTreeContainer {
+    grid-template-columns: auto;
+  }
+}
+
+.skillTree {
+  display: flex;
+}
+
+.branch {
+  height: 10px;
+  width: 5rem;
+  background-color: rgb(32, 30, 30);
+  border-top: 1px solid rgb(54, 53, 53);
+  border-bottom: 1px solid rgb(54, 53, 53);
+  margin: auto 0;
+}
+
+@media screen and (max-width: 540px) {
+  .branch {
+    width: 3rem;
+  }
+}
+
+@media screen and (max-width: 445px) {
+  .branch {
+    width: 2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .branch {
+    width: 1rem;
+  }
+}
+
+.branch.active {
+  background-color: rgb(87, 83, 83);
+  border-top: 1px solid rgb(137, 130, 130);
+  border-bottom: 1px solid rgb(137, 130, 130);
+}
+
+.skillTreeTitle {
+  color: white;
+  font-weight: 300;
+  text-transform: uppercase;
+}

@@ -1,0 +1,19 @@
+.pointsContainer {
+  background-color: rgb(6, 6, 11);
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  padding: 15px 20px;
+  margin: auto;
+}
+
+.availablePoints {
+  color: white;
+  margin: 0;
+}
+
+.pointsTitle {
+  color: rgb(133, 209, 234);
+  font-weight: 400;
+  margin: 0;
+}

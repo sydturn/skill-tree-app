@@ -1,0 +1,136 @@
+:root {
+  --sprite-offset-y: 50px;
+}
+
+.skill {
+  border: 3px solid rgb(171, 199, 241);
+  width: 50px;
+  height: 50px;
+  background-image: url("../../../../img/talent-icons-sprite.png");
+}
+
+.stack {
+  --sprite-x: 0;
+}
+.cutlery {
+  --sprite-x: 50px;
+}
+.cake {
+  --sprite-x: 100px;
+}
+.crown {
+  --sprite-x: 150px;
+}
+.boat {
+  --sprite-x: 200px;
+}
+.snorkeling {
+  --sprite-x: 250px;
+}
+.lightning {
+  --sprite-x: 300px;
+}
+.skull {
+  --sprite-x: 350px;
+}
+
+.stack,
+.cutlery,
+.cake,
+.crown,
+.boat,
+.snorkeling,
+.lightning,
+.skull {
+  background-position: var(--sprite-x) 0;
+}
+
+.stack.inactive,
+.cutlery.inactive,
+.cake.inactive,
+.crown.inactive,
+.boat.inactive,
+.snorkeling.inactive,
+.lightning.inactive,
+.skull.inactive {
+  background-position: var(--sprite-x) var(--sprite-offset-y);
+  border: 3px solid grey;
+  &:hover {
+    background-position: var(--sprite-x) 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :root {
+    --sprite-offset-y: 37px;
+  }
+  .skill {
+    width: 37px;
+    height: 37px;
+    background-image: url("../../../../img/talent-icons-sprite.png");
+    background-size: 296px;
+  }
+  .stack {
+    --sprite-x: 0;
+  }
+  .cutlery {
+    --sprite-x: 37px;
+  }
+  .cake {
+    --sprite-x: 74px;
+  }
+  .crown {
+    --sprite-x: 111px;
+  }
+  .boat {
+    --sprite-x: 148px;
+  }
+  .snorkeling {
+    --sprite-x: 185px;
+  }
+  .lightning {
+    --sprite-x: 222px;
+  }
+  .skull {
+    --sprite-x: 259px;
+  }
+}
+
+@media screen and (max-width: 245px) {
+  :root {
+    --sprite-offset-y: 25px;
+  }
+  .skill {
+    width: 25px;
+    height: 25px;
+    background-image: url("../../../../img/talent-icons-sprite.png");
+    background-size: 200px;
+  }
+  .stack {
+    --sprite-x: 0;
+  }
+  .cutlery {
+    --sprite-x: 25px;
+  }
+  .cake {
+    --sprite-x: 50px;
+  }
+  .crown {
+    --sprite-x: 75px;
+  }
+  .boat {
+    --sprite-x: 100px;
+  }
+  .snorkeling {
+    --sprite-x: 125px;
+  }
+  .lightning {
+    --sprite-x: 150px;
+  }
+  .skull {
+    --sprite-x: 175px;
+  }
+}
+
+/* Use SASS/SCSS if we want to support legacy browsers older than 2016*/

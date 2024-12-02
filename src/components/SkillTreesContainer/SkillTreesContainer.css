@@ -1,0 +1,42 @@
+.skillTreesContainer {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 2rem;
+  border: 1px solid rgb(36, 36, 39);
+  width: fit-content;
+  padding: 20px;
+  margin: 20px;
+}
+
+@media screen and (max-width: 680px) {
+  .skillTreesContainer {
+    display: block;
+  }
+}
+
+.calculatorTitle {
+  color: white;
+  padding: 2px 0;
+  text-align: center;
+  height: fit-content;
+  font-weight: 500;
+  background-color: rgb(36, 36, 39);
+}
+
+.treePointContainer {
+  display: grid;
+  column-gap: 3rem;
+  grid-template-columns: 1fr auto;
+}
+
+@media screen and (max-width: 867px) {
+  .treePointContainer {
+    grid-template-columns: auto;
+    row-gap: 2rem;
+  }
+}
+
+.skillTrees {
+  display: grid;
+  row-gap: 2rem;
+}

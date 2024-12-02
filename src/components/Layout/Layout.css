@@ -1,0 +1,10 @@
+.layout {
+  height: 100vh;
+  position: relative;
+  color: black;
+  background-image: url("../../img/talent-calc-bg.png");
+  background-size: cover;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
