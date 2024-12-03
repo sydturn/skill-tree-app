@@ -44,6 +44,7 @@
   padding: 3px;
   transition: --topColor 300ms, --secondColor 300ms, --startBottomColor 300ms,
     --bottomColor 300ms;
+  border: none;
 }
 
 .shinyBorder.active {
@@ -66,25 +67,25 @@
   --sprite-x: 0;
 }
 .cutlery {
-  --sprite-x: 50px;
+  --sprite-x: -50px;
 }
 .cake {
-  --sprite-x: 100px;
+  --sprite-x: -100px;
 }
 .crown {
-  --sprite-x: 150px;
+  --sprite-x: -150px;
 }
 .boat {
-  --sprite-x: 200px;
+  --sprite-x: -200px;
 }
 .snorkeling {
-  --sprite-x: 250px;
+  --sprite-x: -250px;
 }
 .lightning {
-  --sprite-x: 300px;
+  --sprite-x: -300px;
 }
 .skull {
-  --sprite-x: 350px;
+  --sprite-x: -350px;
 }
 
 .stack,
@@ -128,25 +129,25 @@
     --sprite-x: 0;
   }
   .cutlery {
-    --sprite-x: 37px;
+    --sprite-x: -37px;
   }
   .cake {
-    --sprite-x: 74px;
+    --sprite-x: -74px;
   }
   .crown {
-    --sprite-x: 111px;
+    --sprite-x: -111px;
   }
   .boat {
-    --sprite-x: 148px;
+    --sprite-x: -148px;
   }
   .snorkeling {
-    --sprite-x: 185px;
+    --sprite-x: -185px;
   }
   .lightning {
-    --sprite-x: 222px;
+    --sprite-x: -222px;
   }
   .skull {
-    --sprite-x: 259px;
+    --sprite-x: -259px;
   }
 }
 
@@ -164,25 +165,25 @@
     --sprite-x: 0;
   }
   .cutlery {
-    --sprite-x: 25px;
+    --sprite-x: -25px;
   }
   .cake {
-    --sprite-x: 50px;
+    --sprite-x: -50px;
   }
   .crown {
-    --sprite-x: 75px;
+    --sprite-x: -75px;
   }
   .boat {
-    --sprite-x: 100px;
+    --sprite-x: -100px;
   }
   .snorkeling {
-    --sprite-x: 125px;
+    --sprite-x: -125px;
   }
   .lightning {
-    --sprite-x: 150px;
+    --sprite-x: -150px;
   }
   .skull {
-    --sprite-x: 175px;
+    --sprite-x: -175px;
   }
 }
 
