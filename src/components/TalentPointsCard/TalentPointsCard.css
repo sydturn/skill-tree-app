@@ -1,4 +1,4 @@
-.pointsContainer {
+.talentPointsContainer {
   background-color: rgb(6, 6, 11);
   width: fit-content;
   height: fit-content;
@@ -7,18 +7,18 @@
   margin: auto;
 }
 
-.availablePoints {
+.availableTalentPoints {
   color: white;
   margin: 0;
 }
 
-.pointsTitle {
+.talentPointsTitle {
   color: rgb(133, 209, 234);
   font-weight: 400;
   margin: 0;
 }
 
-.noPointsAvailable {
+.noTalentPointsAvailable {
   color: red;
 }
 

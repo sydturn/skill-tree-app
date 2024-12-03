@@ -1,4 +1,4 @@
-.skillTreesContainer {
+.loadouts {
   display: grid;
   grid-template-rows: auto 1fr;
   row-gap: 2rem;
@@ -6,10 +6,11 @@
   width: fit-content;
   padding: 20px;
   margin: auto;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 680px) {
-  .skillTreesContainer {
+  .loadouts {
     display: block;
   }
 }
@@ -36,7 +37,7 @@
   }
 }
 
-.skillTrees {
+.runeTrees {
   display: grid;
   row-gap: 2rem;
 }

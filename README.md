@@ -1,6 +1,6 @@
-# Skill Tree App
+# Rune Tree App
 
-This is a simple skill tree simulator using React hooks and Typescript
+This is a simple rune tree simulator using React hooks and Typescript
 
 ## How to run
 

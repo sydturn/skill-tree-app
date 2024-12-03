@@ -1,10 +1,10 @@
 import { Layout } from "./components/Layout/Layout";
-import { SkillTreesContainer } from "./components/SkillTreesContainer/SkillTreesContainer";
+import { Loadouts } from "./components/Loadouts/Loadouts";
 
 function App() {
   return (
     <Layout>
-      <SkillTreesContainer />
+      <Loadouts />
     </Layout>
   );
 }

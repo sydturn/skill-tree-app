@@ -1,5 +1,5 @@
 
-export const SKILL_TYPES = {
+export const RUNE_TYPES = {
 	STACK: "stack",
 	CUTLERY: "cutlery",
 	CAKE: "cake",
@@ -10,4 +10,4 @@ export const SKILL_TYPES = {
 	SKULL: "skull",
   };
   
-  export type SkillType = (typeof SKILL_TYPES)[keyof typeof SKILL_TYPES];
+  export type RuneType = (typeof RUNE_TYPES)[keyof typeof RUNE_TYPES];

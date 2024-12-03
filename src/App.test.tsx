@@ -1,49 +1,49 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("Skill Tree App", () => {
-  describe("Skills", () => {
-    it("unlocks when user left clicks on a skill", () => {
+describe("Rune Tree App", () => {
+  describe("Runes", () => {
+    it("unlocks when user left clicks on a rune", () => {
       render(<App />);
-      const firstSkill = screen.getByTestId("skill-stack");
-      expect(firstSkill).toHaveClass("inactive");
-      fireEvent.click(firstSkill);
-      expect(firstSkill).not.toHaveClass("inactive");
+      const firstRune = screen.getByTestId("rune-stack");
+      expect(firstRune).toHaveClass("inactive");
+      fireEvent.click(firstRune);
+      expect(firstRune).not.toHaveClass("inactive");
     });
 
-    it("locks when a user right clicks on skill", () => {
+    it("locks when a user right clicks on rune", () => {
       render(<App />);
-      const firstSkill = screen.getByTestId("skill-stack");
-      expect(firstSkill).toHaveClass("inactive");
-      fireEvent.click(firstSkill);
-      expect(firstSkill).not.toHaveClass("inactive");
-      fireEvent.contextMenu(firstSkill);
-      expect(firstSkill).toHaveClass("inactive");
+      const firstRune = screen.getByTestId("rune-stack");
+      expect(firstRune).toHaveClass("inactive");
+      fireEvent.click(firstRune);
+      expect(firstRune).not.toHaveClass("inactive");
+      fireEvent.contextMenu(firstRune);
+      expect(firstRune).toHaveClass("inactive");
     });
 
-    it("does not unlock when the previous skill has yet to be unlocked", () => {
+    it("does not unlock when the previous rune has yet to be unlocked", () => {
       render(<App />);
-      const thirdSkill = screen.getByTestId("skill-cake");
-      fireEvent.click(thirdSkill);
-      expect(thirdSkill).toHaveClass("inactive");
+      const thirdRune = screen.getByTestId("rune-cake");
+      fireEvent.click(thirdRune);
+      expect(thirdRune).toHaveClass("inactive");
     });
 
-    it("does not refund point when there are points in higher skills", () => {
+    it("does not refund point when there are talent points in higher runes", () => {
       render(<App />);
-      const firstSkill = screen.getByTestId("skill-stack");
-      const secondSkill = screen.getByTestId("skill-cutlery");
-      fireEvent.click(firstSkill);
-      fireEvent.click(secondSkill);
-      fireEvent.contextMenu(firstSkill);
-      expect(firstSkill).not.toHaveClass("inactive");
-      expect(secondSkill).not.toHaveClass("inactive");
+      const firstRune = screen.getByTestId("rune-stack");
+      const secondRune = screen.getByTestId("rune-cutlery");
+      fireEvent.click(firstRune);
+      fireEvent.click(secondRune);
+      fireEvent.contextMenu(firstRune);
+      expect(firstRune).not.toHaveClass("inactive");
+      expect(secondRune).not.toHaveClass("inactive");
     });
   });
 
-  describe("Points", () => {
-    it("allows the user to spend 6 points", () => {
+  describe("TalentPoints", () => {
+    it("allows the user to spend 6 talent points", () => {
       render(<App />);
-      const skills = [
+      const runes = [
         "stack",
         "cutlery",
         "cake",
@@ -53,46 +53,46 @@ describe("Skill Tree App", () => {
         "lightning",
         "skull",
       ];
-      const availablePoints = screen.getByTestId("availablePoints");
+      const availableTalentPoints = screen.getByTestId("availableTalentPoints");
 
-      skills.forEach((skill, index) => {
-        const skillNode = screen.getByTestId(`skill-${skill}`);
-        fireEvent.click(skillNode);
+      runes.forEach((rune, index) => {
+        const runeNode = screen.getByTestId(`rune-${rune}`);
+        fireEvent.click(runeNode);
         if (index < 6) {
-          expect(skillNode).not.toHaveClass("inactive");
+          expect(runeNode).not.toHaveClass("inactive");
         } else if (index > 5) {
-          expect(skillNode).toHaveClass("inactive");
+          expect(runeNode).toHaveClass("inactive");
         }
       });
 
-      expect(availablePoints).toContainHTML("0/6");
+      expect(availableTalentPoints).toContainHTML("0/6");
     });
 
-    it("costs one point to unlock a skill", () => {
+    it("costs one point to unlock a rune", () => {
       render(<App />);
-      const firstSkill = screen.getByTestId("skill-stack");
-      const totalPoints = screen.getByTestId("availablePoints");
-      expect(totalPoints).toContainHTML("6/6");
-      fireEvent.click(firstSkill);
-      expect(totalPoints).toContainHTML("5/6");
+      const firstRune = screen.getByTestId("rune-stack");
+      const totalTalentPoints = screen.getByTestId("availableTalentPoints");
+      expect(totalTalentPoints).toContainHTML("6/6");
+      fireEvent.click(firstRune);
+      expect(totalTalentPoints).toContainHTML("5/6");
     });
 
-    it("displays the current total of points", () => {
+    it("displays the current total of talent points", () => {
       render(<App />);
-      const totalPoints = screen.getByTestId("availablePoints");
-      expect(totalPoints).toBeInTheDocument();
-      expect(totalPoints).toContainHTML("6/6");
+      const totalTalentPoints = screen.getByTestId("availableTalentPoints");
+      expect(totalTalentPoints).toBeInTheDocument();
+      expect(totalTalentPoints).toContainHTML("6/6");
     });
 
-    it("returns one skill point when a skill is right clicked", () => {
+    it("returns one rune point when a rune is right clicked", () => {
       render(<App />);
-      const firstSkill = screen.getByTestId("skill-stack");
-      const totalPoints = screen.getByTestId("availablePoints");
-      expect(totalPoints).toContainHTML("6/6");
-      fireEvent.click(firstSkill);
-      expect(totalPoints).toContainHTML("5/6");
-      fireEvent.contextMenu(firstSkill);
-      expect(totalPoints).toContainHTML("6/6");
+      const firstRune = screen.getByTestId("rune-stack");
+      const totalTalentPoints = screen.getByTestId("availableTalentPoints");
+      expect(totalTalentPoints).toContainHTML("6/6");
+      fireEvent.click(firstRune);
+      expect(totalTalentPoints).toContainHTML("5/6");
+      fireEvent.contextMenu(firstRune);
+      expect(totalTalentPoints).toContainHTML("6/6");
     });
   });
 });

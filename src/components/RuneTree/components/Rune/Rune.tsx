@@ -1,48 +1,48 @@
 import classNames from "classnames";
-import "./Skill.css";
-import { SkillType } from "../../../../types";
-import { getReadableSkill } from "../../../../utils";
+import "./Rune.css";
+import { RuneType } from "../../../../types";
+import { getReadableRune } from "../../../../utils";
 
-interface SkillProps {
-  skillType: SkillType;
+interface RuneProps {
+  runeType: RuneType;
   isPurchased: boolean;
   isAvailable: boolean;
   isRefundable: boolean;
-  onSkillClick(progressCount: number): void;
-  predecessor?: SkillType;
+  onRuneClick(progressCount: number): void;
+  predecessor?: RuneType;
 }
 
-export function Skill({
-  skillType,
+export function Rune({
+  runeType,
   isPurchased,
   isAvailable,
   isRefundable,
-  onSkillClick,
+  onRuneClick,
   predecessor,
-}: SkillProps) {
-  const readableSkill = getReadableSkill(skillType);
+}: RuneProps) {
+  const readableRune = getReadableRune(runeType);
   const handleLeftClick = () => {
     if (!isPurchased && isAvailable) {
-      onSkillClick(-1);
+      onRuneClick(-1);
     }
   };
 
   const handleRightClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     if (isPurchased && isRefundable) {
-      onSkillClick(1);
+      onRuneClick(1);
     }
   };
 
   const ariaDescription = (() => {
     if (isPurchased) {
-      return `"${readableSkill}" is active. ${
+      return `"${readableRune}" is active. ${
         isRefundable ? "Right click to refund." : ""
       }`;
     } else if (isAvailable) {
-      return `"${readableSkill}": Left click to purchase.`;
+      return `"${readableRune}": Left click to purchase.`;
     } else if (predecessor) {
-      return `"${readableSkill}" is not purchasable. Unlock "${getReadableSkill(
+      return `"${readableRune}" is not purchasable. Unlock "${getReadableRune(
         predecessor
       )}" first.`;
     }
@@ -51,15 +51,15 @@ export function Skill({
   return (
     <button
       title={ariaDescription}
-      aria-label={`${readableSkill}`}
+      aria-label={`${readableRune}`}
       aria-description={ariaDescription}
       onClick={handleLeftClick}
       onContextMenu={handleRightClick}
       className={classNames(["shinyBorder", isPurchased && "active"])}
     >
       <div
-        data-testid={`skill-${skillType}`}
-        className={classNames(["skill", skillType, !isPurchased && "inactive"])}
+        data-testid={`rune-${runeType}`}
+        className={classNames(["rune", runeType, !isPurchased && "inactive"])}
       />
     </button>
   );

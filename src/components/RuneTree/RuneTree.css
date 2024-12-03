@@ -1,16 +1,16 @@
-.skillTreeContainer {
+.runeTreeContainer {
   display: grid;
   grid-template-columns: 1fr auto;
   column-gap: 3rem;
 }
 
 @media screen and (max-width: 680px) {
-  .skillTreeContainer {
+  .loadoutsContainer {
     grid-template-columns: auto;
   }
 }
 
-.skillTree {
+.runeTree {
   display: flex;
 }
 
@@ -24,7 +24,7 @@
   transition: background-color 200ms linear;
 }
 
-.skillBranchContainer {
+.runeBranchContainer {
   display: flex;
 }
 
@@ -52,7 +52,7 @@
   border-bottom: 1px solid rgb(137, 130, 130);
 }
 
-.skillTreeTitle {
+.runeTreeTitle {
   color: white;
   font-weight: 300;
   text-transform: uppercase;
