@@ -20,6 +20,7 @@ interface SkillProps {
   isAvailable: boolean;
   isRefundable: boolean;
   onSkillClick(progressCount: number): void;
+  predecessor?: SkillType;
 }
 
 export function Skill({
@@ -28,6 +29,7 @@ export function Skill({
   isAvailable,
   isRefundable,
   onSkillClick,
+  predecessor,
 }: SkillProps) {
   const handleLeftClick = () => {
     if (!isPurchased && isAvailable) {
@@ -42,14 +44,30 @@ export function Skill({
     }
   };
 
+  const ariaDescription = (() => {
+    if (isPurchased) {
+      return `${skillType} is already purchased ${
+        isRefundable && "and can be refunded"
+      }`;
+    } else if (isAvailable) {
+      return `${skillType} is available to purchase`;
+    } else {
+      return `${skillType} is not purchasable. Unlock ${predecessor} first.`;
+    }
+  })();
+
   return (
-    <div className={classNames(["shinyBorder", isPurchased && "active"])}>
+    <button
+      aria-label={`${skillType}`}
+      aria-description={ariaDescription}
+      onClick={handleLeftClick}
+      onContextMenu={handleRightClick}
+      className={classNames(["shinyBorder", isPurchased && "active"])}
+    >
       <div
         data-testid={`skill-${skillType}`}
         className={classNames(["skill", skillType, !isPurchased && "inactive"])}
-        onClick={handleLeftClick}
-        onContextMenu={handleRightClick}
       />
-    </div>
+    </button>
   );
 }

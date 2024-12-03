@@ -33,21 +33,23 @@ export function SkillTree({
         {orderedSkills.map((skillName, skillIndex) => {
           const isPurchased = skillIndex <= skillTreeProgress;
           return (
-            <>
+            <div className={"skillBranchContainer"} key={skillName}>
               <Skill
-                key={skillName}
                 skillType={skillName}
                 isPurchased={isPurchased}
                 isAvailable={skillIndex - 1 === skillTreeProgress}
                 isRefundable={skillIndex === skillTreeProgress}
                 onSkillClick={handleSkillClick}
+                predecessor={
+                  skillIndex > 0 ? orderedSkills[skillIndex - 1] : undefined
+                }
               />
               {skillIndex !== orderedSkills.length - 1 && (
                 <div
                   className={classNames(["branch", isPurchased && "active"])}
                 />
               )}
-            </>
+            </div>
           );
         })}
       </div>

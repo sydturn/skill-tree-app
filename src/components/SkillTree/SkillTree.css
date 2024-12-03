@@ -24,6 +24,10 @@
   transition: background-color 200ms linear;
 }
 
+.skillBranchContainer {
+  display: flex;
+}
+
 @media screen and (max-width: 540px) {
   .branch {
     width: 3rem;
