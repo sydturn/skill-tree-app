@@ -2,8 +2,61 @@
   --sprite-offset-y: 50px;
 }
 
+@property --topColor {
+  syntax: "<color>";
+  initial-value: rgb(88, 88, 88);
+  inherits: false;
+}
+
+@property --secondColor {
+  syntax: "<color>";
+  initial-value: rgb(52, 52, 52);
+  inherits: false;
+}
+
+@property --startBottomColor {
+  syntax: "<color>";
+  initial-value: rgb(87, 88, 88);
+  inherits: false;
+}
+
+@property --bottomColor {
+  syntax: "<color>";
+  initial-value: rgb(57, 57, 57);
+  inherits: false;
+}
+
+@property --topColorStop {
+  syntax: "<percentage>";
+  initial-value: 25%;
+  inherits: false;
+}
+
+.shinyBorder {
+  background: linear-gradient(
+    180deg,
+    var(--topColor) var(--topColorStop),
+    var(--secondColor) 55%,
+    var(--startBottomColor) 71%,
+    var(--bottomColor) 100%
+  );
+  height: fit-content;
+  padding: 3px;
+  transition: --topColor 300ms, --secondColor 300ms, --startBottomColor 300ms,
+    --bottomColor 300ms;
+}
+
+.shinyBorder.active {
+  --topColor: rgba(133, 209, 234, 1);
+  --topColorStop: 55%;
+  --secondColor: rgba(89, 89, 89, 1);
+  --startBottomColor: rgba(88, 95, 100, 1);
+  --bottomColor: rgba(133, 209, 234, 1);
+  height: fit-content;
+  padding: 3px;
+}
+
 .skill {
-  border: 3px solid rgb(171, 199, 241);
   width: 50px;
   height: 50px;
   background-image: url("../../../../img/talent-icons-sprite.png");
@@ -54,7 +107,7 @@
 .lightning.inactive,
 .skull.inactive {
   background-position: var(--sprite-x) var(--sprite-offset-y);
-  border: 3px solid grey;
+  /* border: 3px solid grey; */
   &:hover {
     background-position: var(--sprite-x) 0;
     cursor: pointer;

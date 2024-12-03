@@ -21,6 +21,7 @@
   border-top: 1px solid rgb(54, 53, 53);
   border-bottom: 1px solid rgb(54, 53, 53);
   margin: auto 0;
+  transition: background-color 200ms linear;
 }
 
 @media screen and (max-width: 540px) {

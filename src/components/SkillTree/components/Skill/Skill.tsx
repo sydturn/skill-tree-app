@@ -43,11 +43,13 @@ export function Skill({
   };
 
   return (
-    <div
-      data-testid={`skill-${skillType}`}
-      className={classNames(["skill", skillType, !isPurchased && "inactive"])}
-      onClick={handleLeftClick}
-      onContextMenu={handleRightClick}
-    />
+    <div className={classNames(["shinyBorder", isPurchased && "active"])}>
+      <div
+        data-testid={`skill-${skillType}`}
+        className={classNames(["skill", skillType, !isPurchased && "inactive"])}
+        onClick={handleLeftClick}
+        onContextMenu={handleRightClick}
+      />
+    </div>
   );
 }
