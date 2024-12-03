@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Skill, SkillType } from "./components/Skill/Skill";
+import { Skill } from "./components/Skill/Skill";
 import "./SkillTree.css";
 import classNames from "classnames";
+import { SkillType } from "../../types";
 
 interface SkillTreeProps {
   title: string;

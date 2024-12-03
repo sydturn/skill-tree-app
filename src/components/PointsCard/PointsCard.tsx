@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import "./PointsCard.css";
 
 interface PointsProps {
@@ -8,10 +9,23 @@ interface PointsProps {
 export function PointsCard({ maxPoints, availablePoints }: PointsProps) {
   return (
     <div className="pointsContainer">
-      <p className="availablePoints" data-testid={`availablePoints`}>
+      <p
+        className={classNames([
+          "availablePoints",
+          availablePoints === 0 && "noPointsAvailable inactive",
+        ])}
+        data-testid={`availablePoints`}
+      >
         {availablePoints}/{maxPoints}
       </p>
-      <h3 className="pointsTitle">Points Spent</h3>
+      <h3
+        className={classNames([
+          "pointsTitle",
+          availablePoints === 0 && "inactive",
+        ])}
+      >
+        Points Spent
+      </h3>
     </div>
   );
 }

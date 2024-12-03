@@ -5,7 +5,7 @@
   border: 1px solid rgb(36, 36, 39);
   width: fit-content;
   padding: 20px;
-  margin: 20px;
+  margin: auto;
 }
 
 @media screen and (max-width: 680px) {

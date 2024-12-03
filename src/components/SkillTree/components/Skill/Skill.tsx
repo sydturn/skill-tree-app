@@ -1,18 +1,7 @@
 import classNames from "classnames";
 import "./Skill.css";
-
-export const SKILL_TYPES = {
-  STACK: "stack",
-  CUTLERY: "cutlery",
-  CAKE: "cake",
-  CROWN: "crown",
-  BOAT: "boat",
-  SNORKELING: "snorkeling",
-  LIGHTNING: "lightning",
-  SKULL: "skull",
-};
-
-export type SkillType = (typeof SKILL_TYPES)[keyof typeof SKILL_TYPES];
+import { SkillType } from "../../../../types";
+import { getReadableSkill } from "../../../../utils";
 
 interface SkillProps {
   skillType: SkillType;
@@ -31,6 +20,7 @@ export function Skill({
   onSkillClick,
   predecessor,
 }: SkillProps) {
+  const readableSkill = getReadableSkill(skillType);
   const handleLeftClick = () => {
     if (!isPurchased && isAvailable) {
       onSkillClick(-1);
@@ -46,19 +36,22 @@ export function Skill({
 
   const ariaDescription = (() => {
     if (isPurchased) {
-      return `${skillType} is already purchased ${
-        isRefundable && "and can be refunded"
+      return `"${readableSkill}" is active. ${
+        isRefundable ? "Right click to refund." : ""
       }`;
     } else if (isAvailable) {
-      return `${skillType} is available to purchase`;
-    } else {
-      return `${skillType} is not purchasable. Unlock ${predecessor} first.`;
+      return `"${readableSkill}": Left click to purchase.`;
+    } else if (predecessor) {
+      return `"${readableSkill}" is not purchasable. Unlock "${getReadableSkill(
+        predecessor
+      )}" first.`;
     }
   })();
 
   return (
     <button
-      aria-label={`${skillType}`}
+      title={ariaDescription}
+      aria-label={`${readableSkill}`}
       aria-description={ariaDescription}
       onClick={handleLeftClick}
       onContextMenu={handleRightClick}

@@ -17,3 +17,11 @@
   font-weight: 400;
   margin: 0;
 }
+
+.noPointsAvailable {
+  color: red;
+}
+
+.inactive {
+  opacity: 0.7;
+}
