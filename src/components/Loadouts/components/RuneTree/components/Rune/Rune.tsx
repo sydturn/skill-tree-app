@@ -1,8 +1,7 @@
 import classNames from "classnames";
 import "./Rune.css";
-import { RuneType } from "../../../../types";
-import { getReadableRune } from "../../../../utils";
-
+import { RuneType } from "../../../../../../types";
+import { getReadableRune } from "../../../../../../utils";
 interface RuneProps {
   runeType: RuneType;
   isPurchased: boolean;

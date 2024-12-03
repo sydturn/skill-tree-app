@@ -60,7 +60,7 @@
 .rune {
   width: 50px;
   height: 50px;
-  background-image: url("../../../../img/talent-icons-sprite.png");
+  background-image: url("../../../../../../img/talent-icons-sprite.png");
 }
 
 .stack {
@@ -122,7 +122,7 @@
   .rune {
     width: 37px;
     height: 37px;
-    background-image: url("../../../../img/talent-icons-sprite.png");
+    background-image: url("../../../../../../img/talent-icons-sprite.png");
     background-size: 296px;
   }
   .stack {
@@ -158,7 +158,7 @@
   .rune {
     width: 25px;
     height: 25px;
-    background-image: url("../../../../img/talent-icons-sprite.png");
+    background-image: url("../../../../../../img/talent-icons-sprite.png");
     background-size: 200px;
   }
   .stack {

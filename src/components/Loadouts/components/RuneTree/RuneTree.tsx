@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Rune } from "./components/Rune/Rune";
 import "./RuneTree.css";
 import classNames from "classnames";
-import { RuneType } from "../../types";
+import { RuneType } from "../../../../types";
 
 interface RuneTreeProps {
   title: string;

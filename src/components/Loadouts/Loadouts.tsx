@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import "./Loadouts.css";
-import { RuneTree } from "../RuneTree/RuneTree";
-import { TalentPointsCard } from "../TalentPointsCard/TalentPointsCard";
+import { RuneTree } from "./components/RuneTree/RuneTree";
+import { TalentPointsCard } from "./components/TalentPointsCard/TalentPointsCard";
 
 const MAX_POINTS = 6;
 
