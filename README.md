@@ -5,12 +5,13 @@ This is a simple rune tree simulator using React hooks and Typescript
 
 | Large | Medium | Small | XSmall |
 | ------------- | ------------- | ------------- | ------------- |
-| ![image](https://github.com/user-attachments/assets/3ddfad8d-a095-4a57-b136-7dae609d28ec)  | ![image](https://github.com/user-attachments/assets/9c8d8d06-d2af-499a-aae3-2fe97f199ad6) | ![image](https://github.com/user-attachments/assets/4feb274a-3903-4176-908d-a4ca1d255ced) | ![image](https://github.com/user-attachments/assets/7ce548a2-237a-48ef-94e6-5ed02ae0f072)  |
+| ![image](https://github.com/user-attachments/assets/d79f6178-7e11-4072-ba63-b85df455f440) | ![image](https://github.com/user-attachments/assets/3d595a34-26b7-400c-a49a-c4bea86747f7)| ![image](https://github.com/user-attachments/assets/43b42b60-516c-49ca-8d0f-eaaa1e5d8662) | ![image](https://github.com/user-attachments/assets/dfbb8195-e219-438f-ba23-38738e7f6cbd) |
 
 | Points spent | No Points |
 | ------------ | --------- |
-| ![image](https://github.com/user-attachments/assets/0b102c31-0079-456e-8430-2db7bf541822) | ![image](https://github.com/user-attachments/assets/3d168599-94b5-4fda-b88d-7adb7a278293) |
+| ![image](https://github.com/user-attachments/assets/c6ccea24-827d-41ec-8005-acb6c1d83577) | ![image](https://github.com/user-attachments/assets/12251043-8e7f-4661-8e2d-257763df5ba7) |
 
+Check out the alternative version [here](https://github.com/sydturn/skill-tree-app/pull/1) if you would like a skill tree that can handle multi-spend.
 
 ## How to run
 
