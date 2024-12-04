@@ -4,11 +4,13 @@ import "./TalentPointsCard.css";
 interface TalentPointsProps {
   maxTalentPoints: number;
   availableTalentPoints: number;
+  showSpendRejection: boolean;
 }
 
 export function TalentPointsCard({
   maxTalentPoints,
   availableTalentPoints,
+  showSpendRejection,
 }: TalentPointsProps) {
   return (
     <div className="talentPointsContainer">
@@ -16,6 +18,7 @@ export function TalentPointsCard({
         className={classNames([
           "availableTalentPoints",
           availableTalentPoints === 0 && "noTalentPointsAvailable inactive",
+          showSpendRejection && "notEnoughResources",
         ])}
         data-testid={`availableTalentPoints`}
       >

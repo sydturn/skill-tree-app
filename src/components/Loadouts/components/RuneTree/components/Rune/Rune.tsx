@@ -5,53 +5,29 @@ import { getReadableRune } from "../../../../../../utils";
 interface RuneProps {
   runeType: RuneType;
   isPurchased: boolean;
-  isAvailable: boolean;
-  isRefundable: boolean;
-  onRuneClick(progressCount: number): void;
-  predecessor?: RuneType;
+  onRuneClick(progressCount: number, isRefund: boolean): void;
+  runeNumber: number;
 }
 
 export function Rune({
   runeType,
   isPurchased,
-  isAvailable,
-  isRefundable,
   onRuneClick,
-  predecessor,
+  runeNumber,
 }: RuneProps) {
   const readableRune = getReadableRune(runeType);
   const handleLeftClick = () => {
-    if (!isPurchased && isAvailable) {
-      onRuneClick(-1);
-    }
+    onRuneClick(runeNumber, false);
   };
 
   const handleRightClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    if (isPurchased && isRefundable) {
-      onRuneClick(1);
-    }
+    onRuneClick(runeNumber, true);
   };
-
-  const ariaDescription = (() => {
-    if (isPurchased) {
-      return `"${readableRune}" is active. ${
-        isRefundable ? "Right click to refund." : ""
-      }`;
-    } else if (isAvailable) {
-      return `"${readableRune}": Left click to purchase.`;
-    } else if (predecessor) {
-      return `"${readableRune}" is not purchasable. Unlock "${getReadableRune(
-        predecessor
-      )}" first.`;
-    }
-  })();
 
   return (
     <button
-      title={ariaDescription}
       aria-label={`${readableRune}`}
-      aria-description={ariaDescription}
       onClick={handleLeftClick}
       onContextMenu={handleRightClick}
       className={classNames(["shinyBorder", isPurchased && "active"])}

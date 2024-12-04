@@ -7,24 +7,43 @@ import { RuneType } from "../../../../types";
 interface RuneTreeProps {
   title: string;
   orderedRunes: RuneType[];
-  hasTalentPointsToSpend: boolean;
+  remainingPoints: number;
   handleTalentPointSpend(spentPointCount: number): void;
+  handleSpendRejection(): void;
 }
 
 export function RuneTree({
   title,
   orderedRunes,
-  hasTalentPointsToSpend,
+  remainingPoints,
   handleTalentPointSpend,
+  handleSpendRejection,
 }: RuneTreeProps) {
   const [runeTreeProgress, setRuneTreeProgress] = useState(-1);
 
-  const handleRuneClick = (pointSpend: number) => {
-    if (!hasTalentPointsToSpend && pointSpend < 0) {
+  const handleRuneClick = (skillIndex: number, isRefund?: boolean) => {
+    const cost = (runeTreeProgress - skillIndex) * -1;
+    if (cost > remainingPoints) {
+      handleSpendRejection();
       return;
     }
-    setRuneTreeProgress(runeTreeProgress - pointSpend);
-    handleTalentPointSpend(pointSpend);
+    if (remainingPoints === 0 && skillIndex < 0) {
+      return;
+    }
+
+    // if its a refund, refund the one clicked on as well
+    if (isRefund) {
+      const refundAmount = cost - 1;
+      setRuneTreeProgress(skillIndex - 1);
+      handleTalentPointSpend(refundAmount);
+      return;
+    }
+    // don't refund if isRefund is false (left click)
+    else if (cost > 0 && !isRefund) {
+      setRuneTreeProgress(skillIndex);
+      handleTalentPointSpend(cost);
+      return;
+    }
   };
 
   return (
@@ -38,12 +57,8 @@ export function RuneTree({
               <Rune
                 runeType={runeName}
                 isPurchased={isPurchased}
-                isAvailable={runeIndex - 1 === runeTreeProgress}
-                isRefundable={runeIndex === runeTreeProgress}
                 onRuneClick={handleRuneClick}
-                predecessor={
-                  runeIndex > 0 ? orderedRunes[runeIndex - 1] : undefined
-                }
+                runeNumber={runeIndex}
               />
               {runeIndex !== orderedRunes.length - 1 && (
                 <div
