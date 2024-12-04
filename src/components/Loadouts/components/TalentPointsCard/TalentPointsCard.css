@@ -18,6 +18,36 @@
   margin: 0;
 }
 
+.notEnoughResources {
+  animation: alertWiggle 1s;
+}
+
+@keyframes alertWiggle {
+  0% {
+    transform: rotate(-10deg);
+    font-size: 20px;
+  }
+  25% {
+    transform: rotate(10deg);
+    font-size: 20px;
+  }
+  50% {
+    transform: rotate(-10deg);
+    font-size: 20px;
+  }
+  75% {
+    transform: rotate(10deg);
+    font-size: 20px;
+  }
+  90% {
+    transform: rotate(-10deg);
+    font-size: 20px;
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 .inactive {
   opacity: 0.7;
 }
