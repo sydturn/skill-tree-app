@@ -13,13 +13,9 @@
 }
 
 .talentPointsTitle {
-  color: rgb(133, 209, 234);
+  color: rgba(120, 149, 187, 1);
   font-weight: 400;
   margin: 0;
-}
-
-.noTalentPointsAvailable {
-  color: red;
 }
 
 .inactive {
