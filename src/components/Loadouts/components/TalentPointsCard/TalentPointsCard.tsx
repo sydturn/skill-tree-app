@@ -27,7 +27,7 @@ export function TalentPointsCard({
           availableTalentPoints === 0 && "inactive",
         ])}
       >
-        TalentPoints Spent
+        Points Spent
       </h3>
     </div>
   );
