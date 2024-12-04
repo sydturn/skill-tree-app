@@ -5,7 +5,7 @@
 }
 
 @media screen and (max-width: 680px) {
-  .loadoutsContainer {
+  .runeTreeContainer {
     grid-template-columns: auto;
   }
 }
